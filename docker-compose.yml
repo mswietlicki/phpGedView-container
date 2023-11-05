@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    container_name: phpGedView
+    restart: always
+    image: mswietlicki/phpgedview:latest #https://hub.docker.com/r/mswietlicki/phpgedview/
+#   image: phpgedview # For local docker build
+    ports:
+      - "80:80"
+    volumes:
+      - ./media:/var/www/html/media
+      - ./index:/var/www/html/index
+      - ./config/config.php:/var/www/html/config.php
+    environment:
+      TZ: Europe/Warsaw
